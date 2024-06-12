@@ -16,7 +16,7 @@ provider "aws" {
   region = var.region
 }
 
-resource "aws_instance" "name" {
+resource "aws_instance" "servernode" {
     ami = "ami-0f30a9c3a48f3fa79"
     instance_type = "t2.micro"
     #Attach aws_key_pair to this instance
