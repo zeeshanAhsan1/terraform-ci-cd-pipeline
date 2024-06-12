@@ -21,6 +21,10 @@ resource "aws_instance" "servernode" {
     instance_type = "t2.micro"
     #Attach aws_key_pair to this instance
     key_name = aws_key_pair.deployer.key_name
+    #Attach security group
+    vpc_security_group_ids = [aws_security_group.maingroup.id]
+    #Attach iam_instance_profile
+    iam_instance_profile = aws_iam_instance_profile.ec2-profile.name
     connection {
         type = "ssh"
         host = self.public_ip
@@ -31,6 +35,12 @@ resource "aws_instance" "servernode" {
     tags = {
         "name" = "DeployVM"
     }
+}
+
+#required for ec2 to access ecr
+resource "aws_iam_instance_profile" "ec2-profile" {
+  name = "ec2-profile"
+  role = "EC2-ECR-AUTH"
 }
 
 resource "aws_security_group" "maingroup" {
