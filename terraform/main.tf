@@ -91,3 +91,10 @@ resource "aws_key_pair" "deployer"{
 
 }
 
+#terraform output to get the public_ip of the created ec2
+output "instance_public_ip" {
+    value = aws_instance.servernode.public_ip
+    sensitive = true
+  
+}
+
