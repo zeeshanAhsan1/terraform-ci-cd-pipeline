@@ -1,0 +1,4 @@
+name: CI/CD with Terraform
+on:
+  push:
+    branches:
