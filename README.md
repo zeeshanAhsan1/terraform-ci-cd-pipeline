@@ -2,7 +2,7 @@
 
 Deploy Infrastructure and Code in just a Click!
 
-This repository is a complete implementation of a CI-CD pipeline. Everytime a push happens to the repository a new build is triggered through GitHub Actions.
+This repository is a complete implementation of a CI-CD pipeline. Everytime a push happens to the repository a new build is triggered via GitHub Actions.
 
 ## Technologies Used
 
